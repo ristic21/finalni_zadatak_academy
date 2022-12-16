@@ -24,3 +24,9 @@ h1, h2, h3, h4, h5, h6, .blog-post-title, a {
     border-color: #b34848;
     color: #b34848;
 }
+
+.blog-sidebar{
+    position:absolute;
+    left: 650px;
+    bottom: 300px;
+}

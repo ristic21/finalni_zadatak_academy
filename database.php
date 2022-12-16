@@ -1,14 +1,15 @@
 <?php
 
     $servername = "127.0.0.1";
-    $username = "root";
+    $username = "vivify";
+    $password = "vivify";
     $dbname = "blog2";
     
 
     try {
-        $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username);
+        $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Connected to $dbname at $servername successfully.";
+        // echo "Connected to $dbname at $servername successfully.";
     }
     catch(PDOException $e)
     {

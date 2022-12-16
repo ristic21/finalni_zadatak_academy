@@ -2,26 +2,26 @@
               
     <?php
     include_once("database.php"); 
-    
+   
     $sqlPosts = "SELECT p.id, p.title, p.body, p.author, p.created_at
     FROM posts as p 
    ORDER BY p.created_at DESC";
 
                 $posts = fetchData($connection, $sqlPosts, true);
                 
-                echo '<pre>';
-                    var_dump($posts);
-                    echo '</pre>';
+                // echo '<pre>';
+                //     var_dump($posts);
+                //     echo '</pre>';
 
                  
                 ?>
 
 
             <div class="blog-post">
-
+            
             <?php   foreach($posts as $post) {  ?>
                 <html>
-                    <h2 class="blog-post-title"><a href="single-post.php?=post_id=<?php echo($post['id']) ?>"><?php echo($post['title']) ?></a></h2>
+                    <h2 class="blog-post-title"><a href="single-post.php?post_id=<?php echo($post['id']) ?>"><?php echo($post['title']) ?></a></h2>
                     <p class="blog-post-meta"><?php echo($post['created_at']) ?> by <a href="#"><?php echo($post['author']) ?></a></p>
                     <p><?php echo($post['body']) ?></p>
                 
