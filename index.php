@@ -17,6 +17,7 @@
     <!-- Custom styles for this template -->
     <link href="styles/blog.css" rel="stylesheet">
     <link href="styles/style.css" rel="stylesheet">
+   
 </head>
 
 <body>
@@ -31,7 +32,7 @@
 
         <div class="col-sm-8 blog-main">
     <?php include("posts.php") ?>
-    <?php include("sidebar.php")?>
+    
 
             <nav class="blog-pagination">
                 <a class="btn btn-outline-primary" href="#">Older</a>
@@ -45,7 +46,7 @@
     </div><!-- /.row -->
 
 </main><!-- /.container -->
-
+<?php include("sidebar.php")?>
 <?php include("footer.php"); ?>
 </body>
 </html>

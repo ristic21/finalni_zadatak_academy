@@ -29,6 +29,7 @@ function dumpfunk($data){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link href="styles/blog.css" rel="stylesheet">
     <link href="styles/style.css" rel="stylesheet">
+    <script src="index.js"></script>
 </head>
 
 <body>
@@ -36,17 +37,22 @@ function dumpfunk($data){
 include_once('header.php');
  
  ?>
-
+<div class="blog-post-single">
 <h2 class="blog-post-title"><?php echo($singlePost[0]['title']) ?></h2>
                     <p class="blog-post-meta"><?php echo($singlePost[0]['created_at']) ?> by <a href="#"><?php echo($singlePost[0]['author']) ?></a></p>
                     <p><?php echo($singlePost[0]['body']) ?></p>
-
-                    <ul>
+                    <button id="dugme" class="btn btn-default">Hide comments</button>
+                    <ul id="komentari">
                     <?php foreach($comments as $comment) { ?>
                         <li><?php echo($comment['text']) ?> <br> Autor: <?php echo($comment['author']) ?></li><hr>
                         <?php } ?>
                     </ul>
+                    </div>
+                    <?php include("sidebar.php")?>
 <?php include_once('footer.php');?>
+
+
+
 </body>
 
 </html>
