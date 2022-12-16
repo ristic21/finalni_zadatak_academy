@@ -1,6 +1,33 @@
 
+              
+    <?php
+    include_once("database.php"); 
+    
+    $sqlPosts = "SELECT p.id, p.title, p.body, p.author, p.created_at
+    FROM posts as p 
+   ORDER BY p.created_at DESC";
+
+                $posts = fetchData($connection, $sqlPosts, true);
+                
+                echo '<pre>';
+                    var_dump($posts);
+                    echo '</pre>';
+
+                 
+                ?>
+
+
             <div class="blog-post">
-                <h2 class="blog-post-title"><a href="single-post.php" >Sample blog post</a></h2>
+
+            <?php   foreach($posts as $post) {  ?>
+                <html>
+                    <h2 class="blog-post-title"><a href="single-post.php?=post_id=<?php echo($post['id']) ?>"><?php echo($post['title']) ?></a></h2>
+                    <p class="blog-post-meta"><?php echo($post['created_at']) ?> by <a href="#"><?php echo($post['author']) ?></a></p>
+                    <p><?php echo($post['body']) ?></p>
+                
+
+                <?php } ?>
+                <!-- <h2 class="blog-post-title"><a href="single-post.php">Sample blog post</a></h2>
                 <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
 
                 <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
@@ -30,8 +57,8 @@
                     <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
                 </ol>
                 <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
-            </div><!-- /.blog-post -->
-            <div class="blog-post">
+            </div>/.blog-post -->
+            <!-- <div class="blog-post">
                 <h2 class="blog-post-title"><a href="single-post.php">Another blog post</a></h2>
                 <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
 
@@ -41,9 +68,9 @@
                 </blockquote>
                 <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
                 <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            </div><!-- /.blog-post -->
+            </div>/.blog-post -->
 
-            <div class="blog-post">
+            <!-- <div class="blog-post">
                 <h2 class="blog-post-title"><a href="single-post.php" >New feature</a></h2>
                 <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
 
@@ -55,4 +82,4 @@
                 </ul>
                 <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
                 <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-            </div><!-- /.blog-post -->
+            </div>/.blog-post -->
